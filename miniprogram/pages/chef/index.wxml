@@ -1,0 +1,60 @@
+<view class="page">
+
+  <!-- Header -->
+  <view class="header">
+    <text class="header-back" bindtap="goBack">← 返回</text>
+    <view class="header-info">
+      <text class="header-title">今日用餐安排</text>
+      <text class="header-date">{{dateLabel}}</text>
+    </view>
+  </view>
+
+  <!-- Loading -->
+  <view wx:if="{{loading}}" class="loading-box">
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- Summary -->
+  <view wx:else>
+    <view class="summary-bar">
+      <text class="summary-text">共 {{totalDiners}} 人回报</text>
+      <text class="summary-hint">下拉可刷新</text>
+    </view>
+
+    <!-- Meal sections -->
+    <view wx:for="{{mealKeys}}" wx:key="*this" class="meal-section">
+      <view class="meal-heading">
+        <text class="meal-emoji">{{mealEmojis[item]}}</text>
+        <text class="meal-title">{{mealLabels[item]}}</text>
+        <text class="meal-count">{{meals[item].length}} 人</text>
+      </view>
+
+      <!-- No one eating -->
+      <view wx:if="{{meals[item].length === 0}}" class="empty-row">
+        <text class="empty-text">暂无人用餐</text>
+      </view>
+
+      <!-- Diner rows -->
+      <view wx:else>
+        <view
+          wx:for="{{meals[item]}}"
+          wx:for-item="diner"
+          wx:key="name"
+          class="diner-row"
+        >
+          <view class="diner-avatar">
+            <text class="diner-initial">{{diner.name.slice(0,1)}}</text>
+          </view>
+          <view class="diner-info">
+            <text class="diner-name">{{diner.name}}</text>
+            <text wx:if="{{diner.time}}" class="diner-time">时间：{{diner.time}}</text>
+            <text wx:if="{{diner.food}}" class="diner-food">想吃：{{diner.food}}</text>
+            <text wx:else class="diner-food diner-food-none">未指定</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

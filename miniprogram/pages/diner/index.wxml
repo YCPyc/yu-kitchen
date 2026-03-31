@@ -1,0 +1,94 @@
+<view class="page">
+
+  <!-- Header -->
+  <view class="header">
+    <text class="header-back" bindtap="goBack">← 返回</text>
+    <text class="header-title">用餐计划</text>
+  </view>
+
+  <!-- Locked state: before 7pm -->
+  <view wx:if="{{!isAvailable}}" class="locked-box">
+    <text class="lock-icon">🔒</text>
+    <text class="lock-title">调查问卷尚未开放</text>
+    <text class="lock-sub">每晚 19:00 后可填写明天的用餐计划</text>
+    <text class="lock-countdown">{{countdown}}</text>
+  </view>
+
+  <!-- Submitted success state -->
+  <view wx:elif="{{submitted}}" class="success-box">
+    <text class="success-icon">✅</text>
+    <text class="success-title">提交成功！</text>
+    <text class="success-sub">Mary Claire 已收到你的用餐计划</text>
+    <view class="btn-outline" bindtap="reSubmit">修改回答</view>
+  </view>
+
+  <!-- Survey form -->
+  <view wx:else class="form">
+
+    <!-- Name -->
+    <view class="section">
+      <text class="section-label">你是谁？</text>
+      <input
+        class="name-input"
+        placeholder="输入你的名字"
+        value="{{name}}"
+        bindinput="onNameInput"
+        maxlength="20"
+      />
+    </view>
+
+    <!-- Meals -->
+    <view wx:for="{{mealKeys}}" wx:key="*this" class="meal-card">
+      <view class="meal-header">
+        <text class="meal-emoji">
+          {{item === 'breakfast' ? '🌅' : item === 'lunch' ? '☀️' : '🌙'}}
+        </text>
+        <text class="meal-title">{{mealLabels[item]}}</text>
+      </view>
+
+      <view class="attending-row">
+        <text class="field-label">会在家吃吗？</text>
+        <switch
+          checked="{{meals[item].attending}}"
+          bindchange="onAttendingChange"
+          data-meal="{{item}}"
+          color="#FF6B35"
+        />
+      </view>
+
+      <view wx:if="{{meals[item].attending}}" class="food-row">
+        <text class="field-label">大概几点吃？</text>
+        <picker
+          mode="selector"
+          range="{{timeOptions}}"
+          bindchange="onTimeChange"
+          data-meal="{{item}}"
+        >
+          <view class="time-picker">
+            <text class="time-picker-text">{{meals[item].time}}</text>
+            <text class="time-picker-arrow">></text>
+          </view>
+        </picker>
+      </view>
+
+      <view wx:if="{{meals[item].attending}}" class="food-row">
+        <text class="field-label">想吃什么？（可选）</text>
+        <input
+          class="food-input"
+          placeholder="随意填写，留空也没关系"
+          value="{{meals[item].food}}"
+          bindinput="onFoodInput"
+          data-meal="{{item}}"
+          maxlength="50"
+        />
+      </view>
+    </view>
+
+    <!-- Submit -->
+    <view class="btn-submit {{loading ? 'btn-disabled' : ''}}" bindtap="onSubmit">
+      <text>{{loading ? '提交中...' : '提交计划'}}</text>
+    </view>
+
+  </view>
+
+</view>

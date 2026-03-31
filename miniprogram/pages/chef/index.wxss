@@ -1,0 +1,174 @@
+.page {
+  min-height: 100vh;
+  background: #fff8f0;
+  padding-bottom: 60rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 36rpx 20rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f0e0d0;
+}
+
+.header-back {
+  font-size: 28rpx;
+  color: #FF6B35;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+.header-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 4rpx;
+}
+
+/* Loading */
+.loading-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.loading-text {
+  font-size: 30rpx;
+  color: #bbb;
+}
+
+/* Summary bar */
+.summary-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 36rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.summary-text {
+  font-size: 28rpx;
+  color: #FF6B35;
+  font-weight: 600;
+}
+
+.summary-hint {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+/* Meal section */
+.meal-section {
+  background: #fff;
+  border-radius: 20rpx;
+  margin: 0 24rpx 24rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
+}
+
+.meal-heading {
+  display: flex;
+  align-items: center;
+  padding: 28rpx 30rpx 20rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.meal-emoji {
+  font-size: 40rpx;
+  margin-right: 14rpx;
+}
+
+.meal-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #2d2d2d;
+  flex: 1;
+}
+
+.meal-count {
+  font-size: 26rpx;
+  color: #FF6B35;
+  background: #fff3ee;
+  padding: 6rpx 18rpx;
+  border-radius: 20rpx;
+}
+
+/* Empty */
+.empty-row {
+  padding: 36rpx 30rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+/* Diner row */
+.diner-row {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 30rpx;
+  border-bottom: 1rpx solid #f9f9f9;
+}
+
+.diner-row:last-child {
+  border-bottom: none;
+}
+
+.diner-avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: #FF6B35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.diner-initial {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #fff;
+}
+
+.diner-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.diner-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.diner-time {
+  font-size: 26rpx;
+  color: #FF6B35;
+  margin-top: 6rpx;
+}
+
+.diner-food {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 6rpx;
+}
+
+.diner-food-none {
+  color: #ccc;
+}

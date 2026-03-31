@@ -1,0 +1,20 @@
+<view class="page">
+  <view class="hero">
+    <text class="emoji">🍳</text>
+    <text class="title">家庭餐桌</text>
+    <text class="subtitle">Family Meal Planner</text>
+  </view>
+
+  <view class="card-row">
+    <view class="role-card chef-card" bindtap="chooseChef">
+      <text class="card-emoji">👩‍🍳</text>
+      <text class="card-title">Chef</text>
+      <text class="card-desc">查看用餐安排</text>
+    </view>
+    <view class="role-card diner-card" bindtap="chooseDiner">
+      <text class="card-emoji">🍽️</text>
+      <text class="card-title">Diner</text>
+      <text class="card-desc">填写用餐计划</text>
+    </view>
+  </view>
+</view>
