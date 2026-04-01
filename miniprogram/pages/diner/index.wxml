@@ -3,27 +3,24 @@
   <!-- Header -->
   <view class="header">
     <text class="header-back" bindtap="goBack">← 返回</text>
-    <text class="header-title">用餐计划</text>
-  </view>
-
-  <!-- Locked state: before 7pm -->
-  <view wx:if="{{!isAvailable}}" class="locked-box">
-    <text class="lock-icon">🔒</text>
-    <text class="lock-title">调查问卷尚未开放</text>
-    <text class="lock-sub">每晚 19:00 后可填写明天的用餐计划</text>
-    <text class="lock-countdown">{{countdown}}</text>
+    <text class="header-title">明日用餐计划</text>
   </view>
 
   <!-- Submitted success state -->
-  <view wx:elif="{{submitted}}" class="success-box">
+  <view wx:if="{{submitted}}" class="success-box">
     <text class="success-icon">✅</text>
     <text class="success-title">提交成功！</text>
-    <text class="success-sub">Mary Claire 已收到你的用餐计划</text>
+    <text class="success-sub">Mary Claire 已收到你明天的用餐计划</text>
     <view class="btn-outline" bindtap="reSubmit">修改回答</view>
   </view>
 
   <!-- Survey form -->
   <view wx:else class="form">
+
+    <view class="notice-card">
+      <text class="notice-title">这是明天的用餐调查</text>
+      <text class="notice-sub">你今天填写的内容，会用于安排明天的早餐、午餐和晚餐。</text>
+    </view>
 
     <!-- Name -->
     <view class="section">

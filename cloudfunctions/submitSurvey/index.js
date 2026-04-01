@@ -2,9 +2,10 @@ const cloud = require("wx-server-sdk");
 cloud.init({ env: cloud.DYNAMIC_CURRENT_ENV });
 const db = cloud.database();
 
-// Returns today's date as YYYY-MM-DD (used during testing so data shows immediately)
-function getTodayDate() {
+// Returns tomorrow's date as YYYY-MM-DD so tonight's survey appears on the chef view after midnight
+function getTomorrowDate() {
   const d = new Date();
+  d.setDate(d.getDate() + 1);
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
   const day = String(d.getDate()).padStart(2, "0");
@@ -34,7 +35,7 @@ exports.main = async (event, context) => {
 
   if (action === "submit") {
     const { name, meals } = event;
-    const date = getTodayDate();
+    const date = getTomorrowDate();
 
     // Upsert survey record (one per openid per date)
     const existing = await db.collection("surveys")

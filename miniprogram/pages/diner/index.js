@@ -16,8 +16,6 @@ const TIME_OPTIONS = [
 Page({
   data: {
     name: "",
-    isAvailable: true,    // no time restriction during testing
-    countdown: "",
     submitted: false,
     loading: false,
     meals: {

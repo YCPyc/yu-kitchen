@@ -59,15 +59,30 @@
   margin-bottom: 20rpx;
 }
 
+.summary-copy {
+  display: flex;
+  flex-direction: column;
+}
+
 .summary-text {
-  font-size: 28rpx;
+  font-size: 30rpx;
   color: #FF6B35;
   font-weight: 600;
 }
 
+.summary-date {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 6rpx;
+}
+
 .summary-hint {
   font-size: 24rpx;
-  color: #ccc;
+  color: #666;
+}
+
+.day-block {
+  margin-bottom: 24rpx;
 }
 
 /* Meal section */
